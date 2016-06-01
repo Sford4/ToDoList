@@ -4,6 +4,10 @@ function createItem() {
 	var userInput = textBox.val();
 	var userArray = userInput.split(",");
 	var ulElement = $('#theList');
+	if (!userInput) {
+		alert("Oh come on.  You must have SOMETHING to do!");
+		return;
+	}
 	for (i = 0; i < userArray.length; i++) { 
 		var listPiece = $('<li>');
 		listPiece.click(function(){
@@ -19,5 +23,9 @@ $("#listItem").keyup(function(event){
     if(event.keyCode == 13){
         createItem();
     }
+});
+
+$("#submit").click(function() {
+	createItem();
 });
 
